@@ -6,8 +6,9 @@ class Config:
     '''
     parent class for general configuration
     '''
-    NEWS_API_URL = 'https://newsapi.org/v2/everything?q={}apikey={}'
+    NEWS_API_URL = 'https://newsapi.org/v2/everything?q={}&apikey={}'
     API_KEY = environ.get('API_KEY')
+    SOURCE_URL = 'https://newsapi.org/v2/top-headlines/sources?apikey=319a22ef8acc48d2a8bc83653dab0ed4'
 
 class ProdConfig(Config):
     '''
