@@ -1,0 +1,16 @@
+{% macro displayArticles(article_list) %}
+
+{% for article in article_list %}
+<li>{{article.author }}</li>
+<li>{{article.title}}</li>
+<li>{{article.description}}</li>
+<li>{{article.url}}</li>
+{% endfor %}
+
+{% endmacro %}
+
+{% macro showSources(source_list) %}
+{% for source in source_list %}
+<li>{{source.name}}</li>
+{% endfor %}
+{% endmacro %}
