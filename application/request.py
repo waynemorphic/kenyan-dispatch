@@ -9,29 +9,32 @@ api_key = app.config['API_KEY']
 # retrieving news API base url
 base_url = app.config['NEWS_API_URL']
 
+# sources ur
+source_url = app.config['SOURCE_URL']
+
 # API call
 # get news source
 # def get_news_source():
 #     return
 
 # get news article source
-def get_news_source(type):
+def get_news_source(sources):
     '''
     function gets the json response to our url request for the news articles
 
     has source as an argument
     '''
 
-    get_news_url = base_url.format(type, api_key)
+    get_source_url = source_url.format(sources, api_key)
 
-    with urllib.request.urlopen(get_news_url) as url:
+    with urllib.request.urlopen(get_source_url) as url:
         get_news_data = url.read()
         get_news_response = json.loads(get_news_data)
 
         news_source = None
 
-        if get_news_response['articles']:
-            news_source_list = get_news_response['articles']
+        if get_news_response['sources']:
+            news_source_list = get_news_response['sources']
             news_source = process_source(news_source_list)
 
     return news_source
@@ -65,11 +68,11 @@ def process_source(source_list):
             return news_source
             
 
-def get_article(news):
+def get_article(description):
     '''
     function gets json response
     '''
-    get_article_url = base_url.format(news, api_key)
+    get_article_url = base_url.format(description, api_key)
 
     with urllib.request.urlopen(get_article_url) as url:
         get_article_data = url.read()
