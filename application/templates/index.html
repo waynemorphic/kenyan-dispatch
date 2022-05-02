@@ -1,1 +1,21 @@
-<h1>{{ heading }}</h1>
+{% import 'macros.html' as macro%}
+
+
+<body>
+    <h3>NEWS ARTICLES</h3>
+    <ul>
+        {{ macro.displayArticles(author) }}
+    </ul>
+    <ul>
+        {{ macro.displayArticles(title) }}
+    </ul>
+    <ul>
+        {{ macro.displayArticles(description) }}
+    </ul>
+    <h3>NEWS SOURCES</h3>
+    <ul>{{ macro.showSources(id) }}</ul>
+    <ul>{{ macro.showSources(name) }}</ul>
+    
+    
+    
+</body>
