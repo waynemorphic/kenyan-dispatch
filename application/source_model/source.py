@@ -9,8 +9,9 @@ class Source:
         id, name
     '''
 
-    def __init__(self, id, name, url, language ):
+    def __init__(self, id, name, url, language, description ):
         self.id = id
         self.name = name
         self.url = url
         self.language = language  
+        self.description = description
