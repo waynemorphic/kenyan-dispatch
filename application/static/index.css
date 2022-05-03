@@ -1,0 +1,45 @@
+.body {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: 'Orelega One', cursive;
+    text-align: center;
+    font-size: 2.5rem;
+
+}
+
+#p, h4 {
+    text-align: center;
+    font-family: 'Orelega One', cursive;
+    font-size: 2rem;
+
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+
+}
+
+p {
+    text-align: justify;
+    text-decoration: solid;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+h3 {
+    text-align: justify;
+    font-family: 'Montserrat',sans-serif;
+    font-weight: 600;
+}
+
+img {
+    width: 50%;
+    height: auto;
+    margin-top: 1.5%;
+}
+
