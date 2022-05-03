@@ -1,3 +1,6 @@
+from nturl2path import url2pathname
+
+
 class Source:
     '''
     news class to define the news source objects
@@ -6,7 +9,8 @@ class Source:
         id, name
     '''
 
-    def __init__(self, id, name ):
+    def __init__(self, id, name, url, language ):
         self.id = id
         self.name = name
-        
+        self.url = url
+        self.language = language  

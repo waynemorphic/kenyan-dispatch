@@ -9,23 +9,19 @@ api_key = app.config['API_KEY']
 # retrieving news API base url
 base_url = app.config['NEWS_API_URL']
 
-# sources ur
+# sources url
 source_url = app.config['SOURCE_URL']
 
 # API call
-# get news source
-# def get_news_source():
-#     return
-
 # get news article source
-def get_news_source(sources):
+def get_news_source():
     '''
     function gets the json response to our url request for the news articles
 
     has source as an argument
     '''
 
-    get_source_url = source_url.format(sources, api_key)
+    get_source_url = source_url.format(api_key)
 
     with urllib.request.urlopen(get_source_url) as url:
         get_news_data = url.read()
@@ -36,7 +32,7 @@ def get_news_source(sources):
         if get_news_response['sources']:
             news_source_list = get_news_response['sources']
             news_source = process_source(news_source_list)
-
+    print()
     return news_source
 
     # processing source
@@ -59,20 +55,24 @@ def process_source(source_list):
         for source_item in source_list:
             id = source_item.get('id')
             name = source_item.get('name')
+            url = source_item.get('url')
+            language = source_item.get('language')
 
             # checking if name of source of news is available. If available, the source object is created
             if name:
-                source_object = Source(id, name)
+                source_object = Source(id, name, url, language)
                 news_source.append(source_object)
 
-            return news_source
+        return news_source
             
 
-def get_article(description):
+def get_article():
     '''
     function gets json response
     '''
-    get_article_url = base_url.format(description, api_key)
+    # get_article_url = base_url.format(api_key)
+    get_article_url = 'https://newsapi.org/v2/everything?q=us&from=2022-05-03&to=2021-05-01&sortBy=popularity&language=en&apikey=a29b00af8b22470991b15e53f1eaa1b7'   
+
 
     with urllib.request.urlopen(get_article_url) as url:
         get_article_data = url.read()
@@ -97,10 +97,12 @@ def process_article(article_list):
         title = article_item.get('title')
         description = article_item.get('description')
         url = article_item.get('url')
-        urlToImage = article_item.get('urlToImage')
+        image = article_item.get('urlToImage')
+        publishedAt = article_item.get('publishedAt')
 
-        if url:
-            article_object = Article(author, title, description, url, urlToImage)
+        if title:
+            article_object = Article(author, title, description, url, image, publishedAt)
             news_article.append(article_object)
 
-        return news_article
+    return news_article
+

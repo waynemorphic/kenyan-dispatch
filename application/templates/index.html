@@ -4,7 +4,10 @@
 
 
     <h3>NEWS ARTICLES</h3>
-    <ul>
+    <div class="container">
+        {{macro.displayArticles(the_article)}}
+    </div>
+    <!-- <ul>
         {{ macro.displayArticles(author) }}
     </ul>
     <ul>
@@ -14,9 +17,10 @@
         {{ macro.displayArticles(description) }}
     </ul>
     <h3>NEWS SOURCES</h3>
-    <ul>{{ macro.showSources(id) }}</ul>
-    <ul>{{ macro.showSources(name) }}</ul>
-    
+    <ul>{{ macro.showSources(name)}}</ul>
+    <ul>{{ macro.showSources(language)}}</ul>
+    <ul>{{ macro.showSources(url)}}</ul>
+     -->
     
     
 {% endblock%}

@@ -6,7 +6,7 @@ class Article:
     author, title, description, url, urlToImage
     '''
 
-    def __init__(self, author, title, description, url, urlToImage):
+    def __init__(self, author, title, description, url, urlToImage, publishedAt):
         '''
         object initialization
         '''
@@ -15,4 +15,5 @@ class Article:
         self.description = description
         self.url = url
         self.urlToImage = urlToImage
+        self.publishedAt = publishedAt
 

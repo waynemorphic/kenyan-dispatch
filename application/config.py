@@ -6,9 +6,10 @@ class Config:
     '''
     parent class for general configuration
     '''
-    NEWS_API_URL = 'https://newsapi.org/v2/everything?q={}&apikey={}'
+    NEWS_API_URL = 'https://newsapi.org/v2/everything?q=us&from=2022-05-03&to=2021-05-01&sortBy=popularity&language=en&apikey=a29b00af8b22470991b15e53f1eaa1b7'
     API_KEY = environ.get('API_KEY')
-    SOURCE_URL = 'https://newsapi.org/v2/top-headlines/sources?apikey=319a22ef8acc48d2a8bc83653dab0ed4'
+    SOURCE_URL = 'http://newsapi.org/v2/sources?category=general&language=en&apiKey=a29b00af8b22470991b15e53f1eaa1b7'
+    # TOP_HEADLINES_URL = 'https://newsapi.org/v2/top-headlines/sources?country=us&category=general&language=en&apiKey={}'
 
 class ProdConfig(Config):
     '''
