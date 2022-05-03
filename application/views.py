@@ -14,22 +14,12 @@ def index():
 
     # sources
     the_source = get_news_source()
+    
+    # articles
     the_article = get_article()
 
     print(the_source)
     print(the_article)
-    # source_n = get_news_source()
-    # # #source_url = get_news_source('url')
-    # article_w = get_article()
 
-    # # articles
-    # article_author = get_article('author')
-    # article_title = get_article('title')
-    # article_description = get_article('description')
-    # article_url = get_article('url')
-    # article_urlToImage = get_article('urlToImage')
-    # print(article_description)
-   
-    # return render_template('index.html', heading = heading, name = source_name, language = source_language, author = article_author, title = article_title, description = article_description, url = article_url, urlToImage = article_urlToImage)
-
+    # render to template
     return render_template('index.html', heading = heading, the_source = the_source, the_article = the_article )

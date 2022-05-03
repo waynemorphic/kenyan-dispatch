@@ -57,10 +57,11 @@ def process_source(source_list):
             name = source_item.get('name')
             url = source_item.get('url')
             language = source_item.get('language')
+            description = source_item.get('description')
 
             # checking if name of source of news is available. If available, the source object is created
             if name:
-                source_object = Source(id, name, url, language)
+                source_object = Source(id, name, url, language, description)
                 news_source.append(source_object)
 
         return news_source
@@ -71,7 +72,7 @@ def get_article():
     function gets json response
     '''
     # get_article_url = base_url.format(api_key)
-    get_article_url = 'https://newsapi.org/v2/everything?q=us&from=2022-05-03&to=2021-05-01&sortBy=popularity&language=en&apikey=a29b00af8b22470991b15e53f1eaa1b7'   
+    get_article_url = 'https://newsapi.org/v2/everything?q=kenya&from=2022-05-01&sortBy=popularity&language=en&apikey=a29b00af8b22470991b15e53f1eaa1b7'   
 
 
     with urllib.request.urlopen(get_article_url) as url:
