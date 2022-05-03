@@ -1,24 +1,45 @@
-{% macro displayArticles(the_article) %}
+<div class="container">
 
-{% for article_item in the_article %}
-<div class="card" style="width: 20rem">
-    <img src="{{article_item.urlToImage}}" class="card-img-top" alt="article image">
-    <div class="card-body">
-        <h3>{{article_item.title}} by {{article_item.author}}</h3>
-        <p>{{article_item.description}}</p><br>
-        <a href="{{article_item.url}}" class="btn btn-primary">Read Article</a>
-        <div class="card-footer">
-            <small class="text-muted">Published on {{article_item.publishedAt}}</small>
+    {% macro displayArticles(the_article) %}
+
+    {% for article_item in the_article %}
+    <div class="row row-cols-1 row-cols-md-2">
+        <div class="col">
+            <div class="card">
+                <img src="{{article_item.urlToImage}}" class="card-img-top" alt="article image">
+            </div>
+            <!-- <div class="col-md-8"> -->
+            <div class="card-body">
+                <h3 class="card-title">{{article_item.title}}</h3>
+                <p class="card-text">{{article_item.description}}</p>
+                <div class="card-footer">
+                    <h5>By {{article_item.author}}</h5>
+                    <small class="text-muted">Published on {{article_item.publishedAt}}</small>
+                </div>
+                <a href="{{article_item.url}}" class="btn btn-primary">Read Article</a><br>
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+    {% endfor %}
+    {% endmacro %}
+
+    {% macro showSources(the_source) %}
+    {% for source in the_source %}
+    <div>
+    
+    <div class="row row-cols-1 row-cols-md-2">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">{{source.name}}</h3>
+                <p class="card-text">{{source.description}}</p>
+                <div class="card-footer">
+                    <a href="{{source.url}}" target="_self" class="btn btn-success">Visit Source</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-{% endfor %}
-{% endmacro %}
-
-{% macro showSources(source_list) %}
-{% for source in source_list %}
-<li>{{source.name}}</li>
-<li>{{source.url}}</li>
-<li>{{source.language}}</li>
-{% endfor %}
-{% endmacro %}
+    {% endfor %}
+    {% endmacro %}
+</div>
