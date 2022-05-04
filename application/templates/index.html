@@ -13,22 +13,24 @@
 
 {% block content %}
 <div class="container">
-    <h1></i>THE<span><br></span>KENYAN DISPATCH <span style="font-size: 5rem;">|</span></h1>
+    <h1></i>THE<span><br></span>KENYAN DISPATCH</h1>
     <p id="p">Your Leading Source of News in Kenya on the Go</p>
-    <div class="row">
-        <div class="col">
-            <div class="body">
-                {{macro.displayArticles(the_article)}}
-            </div>
-        </div>
-        <div class="col">
-            <h2>OUR TRUSTED NEWS SOURCES</h2>
-            {{macro.showSources(the_source)}}
-        </div>
-    </div>
-</div>
-<div>
-    <h4><i class="fa-solid fa-grip-lines-vertical"></i>Powered By NewsApi</h4>
+
+            <section>
+                <h2 style="color: white">OUR TRUSTED NEWS SOURCES</h2>
+                <div>  
+                    {{macro.showSources(the_source)}}
+                </div>
+            </section>
+            <main>
+                <div class="body">
+                    {{macro.displayArticles(the_article)}}
+                </div>
+                
+            </main>
+            
+        
+  
 </div>
 
 {% endblock%}
